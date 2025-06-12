@@ -1,5 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import Cart from "@/components/Cart/Cart";
 
 const LazyLoadingComponent = dynamic(
   () => import("../../components/LazyLoading/LazyLoading"),
@@ -22,6 +23,7 @@ const Cartpage = () => {
   return (
     <>
       <LazyLoadingComponent />
+      <Cart />
     </>
   );
 };

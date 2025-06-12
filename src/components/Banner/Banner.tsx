@@ -30,7 +30,7 @@ const Banner = () => {
         <div className="relative flex gap-5 items-center mt-5">
           <SecondaryButton
             label="About Us"
-            className="w-fit text-sm uppercase font-medium bg-white text-black border hover:text-white "
+            className="w-fit text-sm uppercase font-medium bg-white !text-black border  hover:!text-white "
           />
           <p className="flex items-center gap-1 group">
             <Link href={""}>Get Started</Link>

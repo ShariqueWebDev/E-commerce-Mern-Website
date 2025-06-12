@@ -3,18 +3,19 @@ import dynamic from "next/dynamic";
 
 const LazyLoadingComponent = dynamic(
   async () => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    return import("../../components/LazyLoading/LazyLoading");
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return import("../../components/Search/SearchComponent");
   },
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <p className="text-font-bold">Loading...</p>,
   }
 );
 
 const SearchPage = () => {
   return (
-    <div>
+    <div className="pb-20 mt-16 ">
       <LazyLoadingComponent />
+      {/* <SearchComponent /> */}
     </div>
   );
 };
