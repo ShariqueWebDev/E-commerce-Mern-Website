@@ -69,7 +69,7 @@ const Header = () => {
   return (
     <nav
       className={`z-50 border
-         transition-transform duration-300 border-gray-100 ${translateHeader} h-[65px] fixed top-0 text-[15px] font-inria font-semibold bg-white w-full items-center px-20 flex justify-between overflow-hidden`}
+         transition-transform duration-300 border-gray-100 ${translateHeader} h-[65px] fixed top-0 text-[15px] font-inria font-semibold bg-white w-full items-center px-20 flex justify-between `}
     >
       <div className="w-[120px]">
         <Link href={"/"}>
@@ -98,7 +98,7 @@ const Header = () => {
             <User size={18} />
           </button>
           {isOpen && (
-            <div className="absolute right-0 top-9 mt-2 border p-1 rounded-md bg-black z-[500] ">
+            <div className="absolute right-0 top-9 mt-2 border p-1 rounded-md bg-white z-[500] ">
               <div className="flex gap-1 flex-col">
                 {user.role === "admin" && (
                   <Link

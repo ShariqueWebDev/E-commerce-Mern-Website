@@ -1,4 +1,4 @@
-import { Column } from "@tanstack/react-table";
+import { Column, ColumnDef } from "@tanstack/react-table";
 import TableHOC from "./TableHOC";
 
 interface DataType {

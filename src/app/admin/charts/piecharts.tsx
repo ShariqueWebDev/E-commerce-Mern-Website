@@ -27,7 +27,7 @@ const PieCharts = () => {
         <section>
           <div>
             <DoughnutChart
-              labels={data.categories.map((i) => i.heading)}
+              labels={data?.categories?.map((i) => i?.heading)}
               data={data.categories.map((i) => i.value)}
               backgroundColor={data.categories.map(
                 (i) => `hsl(${i.value * 4}, ${i.value}%, 50%)`

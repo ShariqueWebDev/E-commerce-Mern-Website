@@ -1,7 +1,4 @@
-import {
-  AiOutlineSortAscending,
-  AiOutlineSortDescending,
-} from "react-icons/ai";
+"use client";
 import {
   ColumnDef,
   flexRender,
@@ -9,8 +6,13 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
+  SortingState, // <-- Add this
 } from "@tanstack/react-table";
 import { useState } from "react";
+import {
+  AiOutlineSortAscending,
+  AiOutlineSortDescending,
+} from "react-icons/ai";
 
 function TableHOC<T extends object>(
   columns: ColumnDef<T>[],
@@ -20,7 +22,7 @@ function TableHOC<T extends object>(
   showPagination: boolean = false
 ) {
   return function HOC() {
-    const [sorting, setSorting] = useState([]);
+    const [sorting, setSorting] = useState<SortingState>([]); // <-- Typed correctly
     const [pageIndex, setPageIndex] = useState(0);
 
     const table = useReactTable({
@@ -66,9 +68,9 @@ function TableHOC<T extends object>(
             ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map((row) => (
+            {table.getRowModel().rows?.map((row) => (
               <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
+                {row?.getVisibleCells()?.map((cell) => (
                   <td key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
@@ -86,7 +88,9 @@ function TableHOC<T extends object>(
             >
               Prev
             </button>
-            <span>{`${table.getState().pagination.pageIndex + 1} of ${table.getPageCount()}`}</span>
+            <span>{`${
+              table.getState().pagination.pageIndex + 1
+            } of ${table.getPageCount()}`}</span>
             <button
               disabled={!table.getCanNextPage()}
               onClick={() => table.nextPage()}
